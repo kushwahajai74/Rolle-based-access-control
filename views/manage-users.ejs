@@ -23,6 +23,7 @@
             <option value="ADMIN" <%= user.role === 'ADMIN' ? 'selected' : '' %> >Admin</option>
             <option value="HEAD" <%= user.role === 'HEAD' ? 'selected' : '' %>>Head</option>
             <option value="EMPLOYEE" <%= user.role === 'EMPLOYEE' ? 'selected' : '' %>>Employee</option>
+            <option value="EMPLOYEE" <%= user.role === 'INTERN' ? 'selected' : '' %>>Intern</option>
           </select>
           <input type="submit" value="update">
         </form>

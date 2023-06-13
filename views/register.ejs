@@ -1,28 +1,254 @@
 <%- include('./partials/header') %>
+<!-- <div class="container mt-3">
+  <form action="/auth/register" method="post" class="lg-form">
+    <div>
+      <label for="email">Email/Username</label>
+      <input
+        type="text"
+        name="email"
+        id="email"
+        value="<%= locals.email ? email : '' %>"
+      />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" />
+    </div>
+    <div>
+      <label for="password2">Confirm password</label>
+      <input type="password" name="password2" id="password2" />
+    </div>
+    <div>
+      <label for="mangedby">Managed By</label>
+      <input type="text" name="managedby" id="managedby" />
+    </div>
+    <div>
+      <input type="submit" value="Register" />
+    </div>
+  </form>
+</div> -->
+<div class="container mt-3">
+  <form action="/auth/register" method="post" class="lg-form">
+    <div class="row jumbotron">
+      <div class="col-sm-12 my-2">
+        <h2 class="text-center text-black h1">Register New Employee</h2>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="name-f">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="fname"
+          id="name-f"
+          placeholder="Enter your first name."
+          required
+        />
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="name-l">Last name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="lname"
+          id="name-l"
+          placeholder="Enter your last name."
+          required
+        />
+      </div>
 
-<h1>Register</h1>
-<form action="/auth/register" method="post" class="lg-form">
-  <div>
-    <label for="email">Email/Username</label>
-    <input
-      type="text"
-      name="email"
-      id="email"
-      value="<%= locals.email ? email : '' %>"
-    />
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" />
-  </div>
-  <div>
-    <label for="password2">Confirm password</label>
-    <input type="password" name="password2" id="password2" />
-  </div>
-  <div>
-    <input type="submit" value="Register" />
-  </div>
-</form>
+      <div class="col-sm-6 form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          id="email"
+          placeholder="Enter your email."
+          required
+        />
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="address-1">Aadhar Number</label>
+        <input
+          type="address"
+          class="form-control"
+          name="aadhar"
+          id="address-1"
+          placeholder="Aadhar number"
+          required
+        />
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="address-2">Address</label>
+        <input
+          type="address"
+          class="form-control"
+          name="address"
+          id="address-2"
+          placeholder="Adrress/Locality."
+          required
+        />
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="State">City</label>
+        <input
+          type="address"
+          class="form-control"
+          name="city"
+          id="State"
+          placeholder="Enter your city name."
+          required
+        />
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="zip">Postal-Code</label>
+        <input
+          type="zip"
+          class="form-control"
+          name="pincode"
+          id="zip"
+          placeholder="Postal-Code."
+          required
+        />
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="zip">Institute Name</label>
+        <input
+          type="zip"
+          class="form-control"
+          name="institute"
+          id="zip"
+          placeholder="Institute."
+          required
+        />
+      </div>
+      <% if (user.role === "HEAD") { %>
+      <div class="col-sm-6 form-group">
+        <label for="employeeType">Employee Type</label>
+        <select
+          name="role"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option selected>Select</option>
+          <!-- <option value="HEAD">Head</option> -->
+          <option value="EMPLOYEE">Employee</option>
+          <option value="INTERN">Intern</option>
+        </select>
+      </div>
+      <% } else { %>
+      <div class="col-sm-6 form-group">
+        <label for="employeeType">Employee Type</label>
+        <select
+          name="role"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option selected>Select</option>
+          <option value="HEAD">Head</option>
+          <option value="EMPLOYEE">Employee</option>
+          <option value="INTERN">Intern</option>
+        </select>
+      </div>
+      <% } %>
+      <div class="col-sm-6 form-group">
+        <label for="Date">Date Of Joining</label>
+        <input
+          type="Date"
+          name="startsAt"
+          class="form-control"
+          id="Date"
+          placeholder=""
+          required
+        />
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="Date">Date Of Leaving</label>
+        <input
+          type="Date"
+          name="endsAt"
+          class="form-control"
+          id="Date"
+          placeholder=""
+          required
+        />
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="tel">Phone</label>
+        <input
+          type="tel"
+          name="contact"
+          class="form-control"
+          id="tel"
+          placeholder="Enter Your Contact Number."
+          required
+        />
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="password">Password</label>
+        <input
+          type="Password"
+          name="password"
+          class="form-control"
+          id="password"
+          placeholder="Enter your password."
+          required
+        />
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="password2">Confirm password</label>
+        <input
+          type="password"
+          name="password2"
+          id="password2"
+          class="form-control"
+          placeholder="Confirm Password"
+          required
+        />
+      </div>
+      <% if (user.role === "HEAD") { %>
+      <div class="col-sm-6 form-group">
+        <label for="pass2">Manager Email</label>
+        <input
+          name="managedBy"
+          class="form-control"
+          id="pass2"
+          value="<%=user.email%>"
+          readonly
+        />
+      </div>
+      <% } else { %>
+      <div class="col-sm-6 form-group">
+        <label for="pass2">Manager Email</label>
+        <input
+          name="managedBy"
+          class="form-control"
+          id="pass2"
+          placeholder="Enter Manager Email"
+        />
+      </div>
+      <% } %>
+
+      <div class="col-sm-6 form-group">
+        <label for="name-l">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          name="description"
+          id="name-l"
+          placeholder="Enter employee description."
+        />
+      </div>
+
+      <br />
+      <div class="col-sm-12 form-group my-4 text-center">
+        <button class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
 <div>
   <p>
     Already have an account? <span><a href="/auth/login">Login</a></span>

@@ -12,8 +12,8 @@ body {
   font-family: 'Space Mono', monospace;
   font-family: 'Open Sans', sans-serif;
 
-  max-width: 760px;
-  margin: auto;
+  max-width: 1100px;
+  margin: auto !important;
   font-size: 1rem;
 }
 
@@ -247,4 +247,40 @@ ul.messages * {
 }
 .messages .info {
   background-color: #93c5fd;
+}
+.box8{
+  box-shadow: 0px 0px 5px 1px #999;
+}
+.student-profile .card {
+    border-radius: 10px;
+  }
+  
+  .student-profile .card .card-header .profile_img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 10px solid #ccc;
+    border-radius: 50%;
+  }
+  
+  .student-profile .card h3 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .student-profile .card p {
+    font-size: 16px;
+    color: #000;
+  }
+  
+.table th{
+    font-size: 14px;
+    padding: 5px 10px;
+    color: #000;
+}
+.table tr{
+  font-size: 14px;
+  padding: 5px 10px;
+  color: #000;
 }

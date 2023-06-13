@@ -28,6 +28,9 @@ router.post(
 router.get("/register", async (req, res, next) => {
   res.render("register");
 });
+router.get("/head/register", async (req, res, next) => {
+  res.render("newEmployee");
+});
 router.post(
   "/register",
   [
@@ -61,8 +64,24 @@ router.post(
         });
         return;
       }
-
-      const { email, password } = req.body;
+      console.log(req.body);
+      const {
+        email,
+        password,
+        fname,
+        lname,
+        aadhar,
+        address,
+        city,
+        pincode,
+        institute,
+        role,
+        startsAt,
+        endsAt,
+        contact,
+        description,
+        managedBy,
+      } = req.body;
       const doesExist = await User.findOne({ email });
       if (doesExist) {
         req.flash("error", `${email} Email already exists`);
@@ -74,6 +93,19 @@ router.post(
       const newUser = await User.create({
         email,
         password: encryptedPassword,
+        fname,
+        lname,
+        aadhar,
+        address,
+        city,
+        pincode,
+        institute,
+        role,
+        startsAt,
+        endsAt,
+        contact,
+        description,
+        managedBy,
       });
       // console.log(newUser.email);
       // console.log(process.env.ADMIN_EMAIL);
