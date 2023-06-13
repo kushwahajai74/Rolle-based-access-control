@@ -28,8 +28,7 @@ nav > ul > li {
   display: inline-block;
 }
 
-nav > ul > li > a,
-a {
+nav > ul > li > a,a{
   text-decoration: none;
   color: #db2777;
   padding: 8px 16px;
@@ -40,6 +39,33 @@ nav > ul > li > a:hover,
 a:hover {
   background-color: #fdf2f8;
 }
+nav > ul > li > ul {
+  
+  height: auto;
+  color: #db2777;
+  margin: 0;
+  padding: 0;
+  display: none ;
+}
+nav > ul > li:hover ul{
+  display:flex;
+  flex-direction: column;
+
+}
+nav > ul > li > ul>li{
+  text-align: center;
+  list-style: none;
+  font: normal bold 13px/1em Arial, Verdana, Helvetica;
+  
+}
+nav > ul > li > ul>li>a{
+  display: block;
+  text-decoration: none;
+  color: #db2777;
+  z-index: 3;
+  
+}
+
 
 h1.title {
   text-align: center;
@@ -284,3 +310,13 @@ ul.messages * {
   padding: 5px 10px;
   color: #000;
 }
+
+
+
+
+
+
+
+
+
+/* product */

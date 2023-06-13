@@ -1,0 +1,57 @@
+<%- include('./partials/header') %>
+
+<div class="container mt-3">
+  <form action="/product/new" method="post" class="lg-form">
+    <div class="row jumbotron">
+      <div class="col-sm-12 my-2">
+        <h2 class="text-center text-black h1">Create New Product</h2>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="name-f">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          id="name-f"
+          placeholder="Enter product name."
+          required
+        />
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="validity">Validity</label>
+        <select
+          name="validity"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option selected value="1-month">1-Month</option>
+          <option value="3-month">3-month</option>
+          <option value="6-month">6-month</option>
+          <option value="12-month">12-month</option>
+        </select>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="tel">Price</label>
+        <input
+          type="number"
+          name="price"
+          class="form-control"
+          id="price"
+          placeholder="Enter price"
+          required
+        />
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="name-l">Pressentation Link</label>
+        <input type="text" class="form-control" name="ppt" id="name-l" />
+      </div>
+      <br />
+      <div class="col-sm-12 form-group my-4 text-center">
+        <button class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+<br />
+<%- include('./partials/footer') %>

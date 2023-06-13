@@ -4,34 +4,33 @@ const express = require("express");
 const router = express.Router();
 
 // PRODUCT GET ROUTES
-router.get("/", async (req,res) => {
-    const product = await Product.find({});
-  
-    // SHOW ALL PRODUCTS 
-    res.send(product);
-})
+router.get("/", async (req, res) => {
+  const products = await Product.find({});
 
-router.get("/new", async (req,res) => {
+  // SHOW ALL PRODUCTS
+  res.render("product", { products });
+});
 
-    // CREATE A PRODUCT PAGE 
-    // res.render("products")
-    res.send("Create a new product page");
-})
+router.get("/new", async (req, res) => {
+  // CREATE A PRODUCT PAGE
+  // res.render("products")
+  res.render("newProduct");
+});
 
 // PRODUCT POST ROUTES
 
-router.post('/new', async (req, res) => {
-    const {name, validity, price, ppt} = req.body;
-    
-    const product = Product.create({
-        name,
-        validity,
-        price,
-        ppt
-    });
+router.post("/new", async (req, res) => {
+  console.log(req.body);
+  const { name, validity, price, ppt } = req.body;
 
-    res.send(product);
-})
+  const product = Product.create({
+    name,
+    validity,
+    price,
+    ppt,
+  });
+
+  res.redirect("/product");
+});
 
 module.exports = router;
-  
