@@ -63,6 +63,13 @@ app.use(
   ensureLoggedIn({ redirectTo: "/auth/login" }),
   require("../routes/user.route")
 );
+
+app.use(
+  "/product",
+  ensureLoggedIn({ redirectTo: "/auth/login" }),
+  require("../routes/product.routes")
+);
+
 app.use(
   "/admin",
   ensureLoggedIn({ redirectTo: "/auth/login" }),

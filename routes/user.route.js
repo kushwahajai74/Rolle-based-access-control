@@ -1,5 +1,6 @@
 const { roles } = require("../utils/constants");
 const User = require("../models/user.model");
+const Product = require("../models/productModel");
 const express = require("express");
 const router = express.Router();
 
@@ -31,5 +32,7 @@ router.get("/:id", async (req, res, next) => {
     next(error);
   }
 });
+
+
 
 module.exports = router;
