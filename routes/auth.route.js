@@ -28,9 +28,7 @@ router.post(
 router.get("/register", async (req, res, next) => {
   res.render("register");
 });
-router.get("/head/register", async (req, res, next) => {
-  res.render("newEmployee");
-});
+
 router.post(
   "/register",
   [
